@@ -26,7 +26,7 @@
 
             <!-- 如果价格超过100，就有red这个类 -->
             <td :class="{ red: item.price >= 100 }">{{ item.price }}</td>
-            <td >{{ item.time | formatTime }}</td>
+            <td>{{ item.time }}</td>
             <td><a href="#" @click="del(item.id)">删除</a></td>
           </tr>
           <!-- <tr style="background-color: #EEE">
@@ -81,8 +81,6 @@
 //    yarn add bootstrap
 // 2. 把list数组 - 铺设表格
 // 3. 修改价格颜色 大于100 颜色为红
-import moment from 'moment'
-
 export default {
   name: "VueDemo",
   data () {
@@ -117,15 +115,8 @@ export default {
     del(id){
       const idnex = this.list.findIndex((ele) => ele.id == id);
       this.list.splice(idnex,1)
-    },
-
+    }
   },
-filters:{
-  formatTime(val){
-    return moment(val).format('MM-DD YYYY ,h:mm:ss')
-  }
-}
-
 }
 </script>
 
