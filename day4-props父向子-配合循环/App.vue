@@ -10,14 +10,7 @@
      -->
 
      <MyProduct 
-      v-for="(item,index) in list" 
-      :key='item.id' 
-      :title="item.proname"
-      :price="item.proprice"
-      :info="item.info"
-      :index="index"
-      v-on:del = 'delFn'
-      />
+      v-for="item in list" :key='item.id' :obj="item"/>
   </div>
 </template>
 
@@ -58,12 +51,6 @@ export default {
   },
   components: {
     MyProduct,
-  },
-  methods:{
-    delFn(val){
-      console.log('触发',val)
-      this.list[val].proprice--
-    }
   }
 };
 </script>
